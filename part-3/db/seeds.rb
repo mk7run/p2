@@ -15,15 +15,15 @@ User.create!(first_name: "mitch", last_name:
 User.create!(first_name: "baska", last_name:
   "batbold", username: "itsbaska", email: "itsbaska@gmail.com", password: "password")
 
-4.times do
-  Restaurant.create!(name: Faker::Name.last_name, cuisine: Faker::Demographic.demonym, address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state, zipcode: Faker::Address.zip_code, creator_id: rand(1..4))
+10.times do
+  Restaurant.create!(name: Faker::Hipster.word.capitalize, cuisine: Faker::Demographic.demonym, address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state, zipcode: Faker::Address.zip_code, creator_id: rand(1..4))
 end
 
 
-10.times do
-  Review.create!(content: Faker::Lorem.paragraph, reviewer_id: rand(1..4), rating: rand(1..10),restaurant_id: rand(1..4))
+20.times do
+  Review.create!(content: Faker::Lorem.paragraph(2), reviewer_id: rand(2..4), rating: rand(1..10),restaurant_id: rand(1..4))
 end
 
 5.times do
-  Review.create!(content: Faker::Lorem.paragraph, reviewer_id: 1, rating: rand(5..10), restaurant_id: rand(1..4))
+  Review.create!(content: Faker::Lorem.paragraph(2), reviewer_id: 1, rating: rand(5..10), restaurant_id: rand(1..4))
 end

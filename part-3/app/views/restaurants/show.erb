@@ -10,3 +10,9 @@
 <div class="reviews">
   <%= erb :"reviews/show", locals: { restaurant: @restaurant } %>
 </div>
+
+<div class="review-form">
+  <% if logged_in? %>
+    <%= erb :"/reviews/new" %>
+  <% end %>
+</div>

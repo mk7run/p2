@@ -1,14 +1,13 @@
-<h2>Leave a Review</h2>
+<h2>Leave a Review for <%= @restaurant.name %></h2>
+
+<% if @errors %>
+  <%= erb :"_errors", locals: { errors: @errors } %>
+<% end %>
 
 <form method="post" action="/restaurants/<%= @restaurant.id %>/reviews">
-  <input type="hidden" name="_method" value="PUT">
-  <div class="edit-form-field">
-    <input class="block w-70 mar-t-2 mar-b-2 pad-1 center"type="text" name="restaurant[name]" value="<%= @restaurant.name %>">
-    <input class="block w-70 mar-t-2 mar-b-2 pad-1 center"type="text" name="restaurant[cuisine]" value="<%= @restaurant.cuisine %>">
-    <input class="block w-70 mar-t-2 mar-b-2 pad-1 center"type="text" name="restaurant[address]" value="<%= @restaurant.address %>">
-    <input class="block w-70 mar-t-2 mar-b-2 pad-1 center"type="text" name="restaurant[city]" value="<%= @restaurant.city %>">
-    <input class="block w-70 mar-t-2 mar-b-2 pad-1 center"type="text" name="restaurant[state]" value="<%= @restaurant.state %>">
-    <input class="block w-70 mar-t-2 mar-b-2 pad-1 center"type="text" name="restaurant[zipcode]" value="<%= @restaurant.zipcode %>">
+  <div class="review-form-field">
+    <input class="block w-70 mar-t-2 mar-b-2 pad-1 center"type="text" name="review[content]" placeholder="I like the...">
+    <input class="block w-70 mar-t-2 mar-b-2 pad-1 center"type="text" name="review[rating]" placeholder="I give it a...">
   </div>
-    <input class="block w-70 mar-t-2 mar-b-3 pad-2 round-1 text-c submit center" type="submit" value="Update Restaurant!">
+    <input class="block w-70 mar-t-2 mar-b-3 pad-2 round-1 text-c submit center" type="submit" value="Add Review to <%= @restaurant.name %>">
 </form>
