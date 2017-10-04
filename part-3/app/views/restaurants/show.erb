@@ -1,8 +1,12 @@
-<h3><%= @restaurant.name %></h3>
+<h2><%= @restaurant.name %></h2>
 <div class="no-list-style">
   <ul>
     <li>Address: <%= @restaurant.address %>, <%= @restaurant.city %>, <%= @restaurant.state.upcase %> <%= @restaurant.zipcode %> </li>
     <li>Cuisine: <%= @restaurant.cuisine %> </li>
     <li>Added by: <%= @restaurant.creator.username  %></li>
   </ul>
+</div>
+
+<div class="reviews">
+  <%= erb :"reviews/show", locals: { restaurant: @restaurant } %>
 </div>

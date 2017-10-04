@@ -25,5 +25,5 @@ end
 end
 
 5.times do
-  Review.create!(content: Faker::Lorem.paragraph, reviewer_id: 1, restaurant_id: rand(1..4))
+  Review.create!(content: Faker::Lorem.paragraph, reviewer_id: 1, rating: rand(5..10), restaurant_id: rand(1..4))
 end
