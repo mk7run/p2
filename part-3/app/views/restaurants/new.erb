@@ -1,11 +1,16 @@
 <h2> Enter Restaurant Details </h2>
 
-<form method="POST" action="/restaurant">
+<% if @errors %>
+  <%= erb :"_errors", locals: { errors: @errors } %>
+<% end %>
+
+<form method="POST" action="/restaurants">
   <input class="block w-70 mar-t-2 mar-b-2 pad-1 center" type="text" placeholder="Name" name="restaurant[name]">
   <input class="block w-70 mar-t-2 mar-b-2 pad-1 center" type="text" placeholder="Cuisine" name="restaurant[cuisine]">
   <input class="block w-70 mar-t-2 mar-b-2 pad-1 center" type="text" placeholder="Address" name="restaurant[address]">
   <input class="block w-70 mar-t-2 mar-b-2 pad-1 center" type="text" placeholder="City" name="restaurant[city]">
   <input class="block w-70 mar-t-2 mar-b-2 pad-1 center" type="text" placeholder="State" name="restaurant[state]">
   <input class="block w-70 mar-t-2 mar-b-2 pad-1 center" type="text" placeholder="Zipcode" name="restaurant[zipcode]">
+  <input class
   <input class="block w-70 mar-t-2 mar-b-3 pad-2 round-1 text-c submit center" type="submit" value="Save Restaurant!">
 </form>

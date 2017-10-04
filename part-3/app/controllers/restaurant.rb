@@ -1,6 +1,7 @@
 # RESTFUL Routing:
 # display all restaurants
 get '/restaurants' do
+  @restaurants = Restaurant.all
   erb :"/restaurants/index"
 end
 
@@ -13,11 +14,21 @@ end
 # create a new restaurant
 post '/restaurants' do
   authenticate!
-  redirect '/restaurants'
+  @restaurant = Restaurant.new(params[:restaurant])
+
+  if @restaurant.save
+    current_user.created_restaurants << @restaurant
+    redirect '/'
+  else
+    status 422
+    @errors = @restaurant.errors.full_messages
+    erb :"/restaurants/new"
+  end
 end
 
 # display a specific restaurant
 get '/restaurants/:id' do
+  @restaurant = Restaurant.find(params[:id])
   erb :"/restaurants/show"
 end
 

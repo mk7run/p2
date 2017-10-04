@@ -3,5 +3,5 @@ class Review < ActiveRecord::Base
   belongs_to :restaurant
 
 
-  validates :content, :reviewer_id, :restaurant_id, presence: true
+  validates :content, presence: true
 end
