@@ -16,6 +16,22 @@ $(document).ready(function(){
     });
   });
 
+  $("#posts").on("submit", ".post", function(event){
+    event.preventDefault();
+    var $article = $(this);
+    var $form = $article.children("form");
+
+    var url = $form.attr("action");
+    var $likes = $article.children("p.post_details").children("span");
+    console.log($likes)
+    $.ajax({
+      url: url,
+      method: "put"
+    }).done(function(response){
+      $likes.replaceWith(response);
+    });
+
+  });
 
 
 
