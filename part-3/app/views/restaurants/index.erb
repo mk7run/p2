@@ -1,12 +1,13 @@
-<div class="restaurants-show-links">
+<div class="restaurants-box-list">
   <% @restaurants.each do |restaurant|  %>
-    <div class="restaurant-link no-list-style">
+    <div class="restaurant-box no-list-style">
       <ul>
         <li><a href="/restaurants/<%=restaurant.id%>"><%= restaurant.name %></a>
         </li>
         <li>
           <%= restaurant.city %>, <%= restaurant.state %>
         </li>
+
         <% if logged_in? && authorized?(restaurant.creator)%>
         <div class="user-link">
           <li>
@@ -17,6 +18,7 @@
           </li>
         </div>
         <% end %>
+
       </ul>
     </div>
   <% end %>

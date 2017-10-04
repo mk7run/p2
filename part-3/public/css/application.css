@@ -4,10 +4,8 @@ body {
 header {
   display: block;
 }
-
-.container {
-  clear: both;
-  padding: 5%;
+.header {
+  padding: 2%;
 }
 
 nav {
@@ -83,8 +81,17 @@ nav li{
   text-decoration: underline;
 }
 
-.restaurant-link {
-  font-size: 1em
+.restaurants-box-list {
+  display: inline-block;
+}
+
+.restaurant-box {
+  font-size: 1em;
+  width: 30%;
+  border: 2px solid gray;
+  padding: 25px;
+  margin: 25px;
+  float: left;
 }
 
 .no-list-style li {
@@ -94,3 +101,4 @@ nav li{
 .user-link li{
   display: inline-block;
 }
+
