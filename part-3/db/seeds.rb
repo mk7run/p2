@@ -19,8 +19,9 @@ User.create!(first_name: "baska", last_name:
   Restaurant.create!(name: Faker::Name.last_name, cuisine: Faker::Demographic.demonym, address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state, zipcode: Faker::Address.zip_code, creator_id: rand(1..4))
 end
 
+
 10.times do
-  Review.create!(content: Faker::Lorem.paragraph, reviewer_id: rand(1..4), restaurant_id: rand(1..4))
+  Review.create!(content: Faker::Lorem.paragraph, reviewer_id: rand(1..4), rating: rand(1..10),restaurant_id: rand(1..4))
 end
 
 5.times do
