@@ -18,6 +18,6 @@ post '/restaurants/:restaurant_id/reviews' do
   else
     status 422
     @errors = @new_review.errors.full_messages
-    erb :"/reviews/new"
+    erb :"/restaurants/show"
   end
 end
