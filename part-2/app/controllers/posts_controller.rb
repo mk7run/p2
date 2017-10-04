@@ -5,12 +5,21 @@ end
 
 post "/posts" do
   @post = Post.new(params[:post])
-
-  if @post.save
-    redirect "posts/#{@post.id}"
+  if request.xhr?
+    if @post.save
+      erb :"/posts/_post", layout: false, locals: { post: @post }
+    else
+      @errors = @post.errors
+      status 422
+      erb :"/posts/new"
+    end
   else
-    @errors = @post.errors.full_messages
-    erb :"posts/new"
+    if @post.save
+      redirect "posts/#{@post.id}"
+    else
+      @errors = @post.errors.full_messages
+      erb :"posts/new"
+    end
   end
 end
 
