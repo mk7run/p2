@@ -7,6 +7,11 @@
         <li>
           <%= restaurant.city %>, <%= restaurant.state %>
         </li>
+        <% if logged_in? && authorized?(restaurant.creator)%>
+        <li>
+          <a href='/restaurants/<%=restaurant.id%>/edit'>edit</a>
+        </li>
+        <% end %>
       </ul>
     </div>
   <% end %>
