@@ -25,13 +25,10 @@
       <nav>
         <ul>
           <li>
-            <a href="/users/<%= current_user.id %>">Hello, <%= current_user.first_name %></a>
+            <a href="/users/<%= current_user.id %>">hello, <%= current_user.first_name %></a>
           </li>
           <li class="no-style-button">
-            <form method="POST" action="/sessions">
-              <input type="hidden" name="_method" value="DELETE" />
-              <input type="submit" class="button" value="logout" />
-            </form>
+            <%= erb :"/sessions/_delete" %>
           </li>
           <li><a href="/">home</a></li>
         </ul>

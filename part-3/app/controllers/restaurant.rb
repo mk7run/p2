@@ -44,7 +44,6 @@ end
 put '/restaurants/:id' do
   authenticate!
   @restaurant = Restaurant.find(params[:id])
-  ep @restaurant.creator
   authorize!(@restaurant.creator)
   if @restaurant.update(params[:restaurant])
     redirect '/restaurants'
@@ -57,7 +56,9 @@ end
 # delete a specific restaurant
 delete '/restaurants/:id' do
   authenticate!
-  authorize!
+  @restaurant = Restaurant.find(params[:id])
+  authorize!(@restaurant.creator)
+  @restaurant.destroy
   redirect '/restaurants'
 end
 

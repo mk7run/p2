@@ -90,3 +90,7 @@ nav li{
 .no-list-style li {
   list-style-type: none;
 }
+
+.user-link li{
+  display: inline-block;
+}

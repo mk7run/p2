@@ -8,9 +8,14 @@
           <%= restaurant.city %>, <%= restaurant.state %>
         </li>
         <% if logged_in? && authorized?(restaurant.creator)%>
-        <li>
-          <a href='/restaurants/<%=restaurant.id%>/edit'>edit</a>
-        </li>
+        <div class="user-link">
+          <li>
+            <a href='/restaurants/<%=restaurant.id%>/edit'>edit</a>
+          </li>
+          <li class="no-style-button">
+            <%= erb :"/restaurants/_delete", locals: {restaurant: restaurant} %>
+          </li>
+        </div>
         <% end %>
       </ul>
     </div>
