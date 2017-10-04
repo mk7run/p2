@@ -35,21 +35,29 @@ end
 # render an edit form for a restaurant
 get '/restaurants/:id/edit' do
   authenticate!
-  authorized!
-  erb :"/restaurants/:id/edit"
+  @restaurant = Restaurant.find(params[:id])
+  authorize!(@restaurant.creator)
+  erb :"/restaurants/edit"
 end
 
 # update a restaurant
 put '/restaurants/:id' do
   authenticate!
-  authorized!
-  redirect "/restaurants/#{params[:id]}"
+  @restaurant = Restaurant.find(params[:id])
+  ep @restaurant.creator
+  authorize!(@restaurant.creator)
+  if @restaurant.update(params[:restaurant])
+    redirect '/restaurants'
+  else
+    @errors = @restaurant.errors.full_messages
+    erb :"/restaurants/edit"
+  end
 end
 
 # delete a specific restaurant
 delete '/restaurants/:id' do
   authenticate!
-  authorized!
+  authorize!
   redirect '/restaurants'
 end
 
