@@ -1,7 +1,17 @@
-<% @restaurants.each do |restaurant|  %>
-  <ul>
-    <li>
-      Restaurant Name: <a href="/restaurants/<%=restaurant.id%>"><%= restaurant.name %></a>
-    </li>
-  </ul>
-<% end %>
+<div class="restaurants-show-links">
+  <% @restaurants.each do |restaurant|  %>
+    <div class="restaurant-link no-list-style">
+      <ul>
+        <li><a href="/restaurants/<%=restaurant.id%>"><%= restaurant.name %></a>
+        </li>
+        <li>
+          <%= restaurant.city %>, <%= restaurant.state %>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+</div>
+
+<form method="get" action="/restaurants/new">
+  <input class="block w-70 mar-t-2 mar-b-3 pad-2 round-1 text-c submit center" type="submit" value="Add a Restaurant!">
+</form>

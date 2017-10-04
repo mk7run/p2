@@ -82,3 +82,15 @@ nav li{
 .no-style-button input:hover {
   text-decoration: underline;
 }
+
+.restaurant-link {
+  font-size: 1em
+}
+
+.no-list-style li {
+  list-style-type: none;
+}
+
+/*.restaurants-show-links {
+  display: inline-block;
+}*/
