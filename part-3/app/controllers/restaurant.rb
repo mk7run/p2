@@ -15,7 +15,7 @@ end
 post '/restaurants' do
   authenticate!
   @restaurant = Restaurant.new(params[:restaurant])
-
+  @restaurant.creator_id = current_user.id
   if @restaurant.save
     current_user.created_restaurants << @restaurant
     redirect '/'
