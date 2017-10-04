@@ -12,7 +12,14 @@
 </div>
 
 <div class="review-form">
+  <h2>Leave a Review for <%= @restaurant.name %></h2>
+
   <% if logged_in? %>
+    <% if @errors %>
+      <%= erb :"_errors", locals: { errors: @errors } %>
+    <% end %>
     <%= erb :"/reviews/new" %>
+  <% else %>
+    <%= erb :"/sessions/show" %>
   <% end %>
 </div>

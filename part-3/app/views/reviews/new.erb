@@ -1,25 +1,20 @@
-<h2>Leave a Review for <%= @restaurant.name %></h2>
-
-<% if @errors %>
-    <%= erb :"_errors", locals: { errors: @errors } %>
-<% end %>
 <div class="new-review-form">
   <form method="post" action="/restaurants/<%= @restaurant.id %>/reviews">
     Rating:
-    <select class="center" name="review[rating]">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
+    <select name="review[rating]">
       <option value="10">10</option>
+      <option value="9">9</option>
+      <option value="8">8</option>
+      <option value="7">7</option>
+      <option value="6">6</option>
+      <option value="5">5</option>
+      <option value="4">4</option>
+      <option value="3">3</option>
+      <option value="2">2</option>
+      <option value="1">1</option>
     </select>
-    <input class="block w-70 mar-t-2 mar-b-2 pad-1 center" type="text" name="review[content]" placeholder="I like the..."/>
+    <input class="block w-70 mar-t-2 mar-b-2 pad-1" type="text" name="review[content]" placeholder="I like the..."/>
     </div>
-      <input class="block w-70 mar-t-2 mar-b-3 pad-2 round-1 text-c submit center" type="submit" value="Add Review to <%= @restaurant.name %>"/>
+      <input class="block w-70 mar-t-2 mar-b-3 pad-2 round-1 text-c submit" type="submit" value="Add Review to <%= @restaurant.name %>"/>
   </form>
 </div>
