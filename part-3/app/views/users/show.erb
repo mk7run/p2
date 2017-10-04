@@ -1,2 +1,28 @@
-<h3><%= @user.first_name %> <%= @user.last_name %>'s Profile Page</h3>
+<h2><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %>'s Profile Page</h2>
 
+<p>Account info:
+  <ul>
+    <li>Username: <%= @user.username %></li>
+    <li>Email: <%= @user.email %></li>
+  </ul>
+</p>
+
+<div class="profile-c-rest">
+  <p>Here are the restaurants you've created on DBC: Eat and Review:</p>
+    <% @user.created_restaurants.each do |restaurant| %>
+      <ul>
+        <li><%= restaurant.name %></li>
+      </ul>
+    <% end %>
+</div>
+
+<div class="profile-reviews no-list-style">
+  <p>Here are the reviews you've created on DBC: Eat and Review:</p>
+    <% @user.reviews.each do |review| %>
+      <ul>
+        <li><strong> <%= review.restaurant.name %></strong></li>
+        <li>Your rating: <%= review.rating %> </li>
+        <li>Your review: <%= review.content %></li>
+      </ul>
+    <% end %>
+</div>

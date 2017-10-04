@@ -1,5 +1,6 @@
 body {
   background-color: rgb(193, 205, 193);
+  font-family: helvetica;
 }
 header {
   display: block;
@@ -114,4 +115,16 @@ nav li{
 .review-form {
   float: right;
   padding-right: 5%;
+}
+
+.profile-reviews p {
+  text-decoration: underline;
+}
+
+.profile-c-rest p {
+  text-decoration: underline;
+}
+
+.profile-c-rest li {
+  list-style-type: disc;
 }
