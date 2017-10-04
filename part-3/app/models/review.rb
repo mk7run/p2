@@ -1,0 +1,7 @@
+class Review < ActiveRecord::Base
+  belongs_to :reviewer, foreign_key: :reviewer_id, class_name: "User"
+  belongs_to :restaurant
+
+
+  validates :content, :reviewer_id, :restaurant_id, presence: true
+end

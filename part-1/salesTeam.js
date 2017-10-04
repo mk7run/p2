@@ -3,12 +3,25 @@
 /*   when iterating over a sales team's array of employees.   */
 /**************************************************************/
 
-var SalesTeam = {
-  team: [],
-  addEmployee = function(employee){
-    this.team.push(employee);
-  },
-  createTeam = function(employees) {
-    this.team = this.team.concat(employees);
-  }
+var SalesTeam = function(employees){
+  this.employees = employees;
+}
+
+
+
+SalesTeam.prototype.find = function(name){
+  this.employees.forEach(function(employee){
+    if (name == employee.firstName) {
+      return employee
+    };
+  });
 };
+
+SalesTeam.prototype.length = function(){
+  return this.employees.length;
+};
+
+SalesTeam.prototype.bonusEarners = function(){
+  return this.employees.filter(employee => employee.totalSales());
+}
+
