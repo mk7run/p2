@@ -16,7 +16,7 @@ User.create!(first_name: "baska", last_name:
   "batbold", username: "itsbaska", email: "itsbaska@gmail.com", password: "password")
 
 10.times do
-  Restaurant.create!(name: Faker::Hipster.word.capitalize, cuisine: Faker::Demographic.demonym, address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state, zipcode: Faker::Address.zip_code, creator_id: rand(1..4))
+  Restaurant.create!(name: Faker::Hipster.word.capitalize, cuisine: Faker::Demographic.demonym, address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zipcode: Faker::Address.zip_code, creator_id: rand(1..4))
 end
 
 

@@ -46,7 +46,7 @@ put '/restaurants/:id' do
   @restaurant = Restaurant.find(params[:id])
   authorize!(@restaurant.creator)
   if @restaurant.update(params[:restaurant])
-    redirect '/restaurants'
+    redirect "/restaurants/#{params[:id]}"
   else
     @errors = @restaurant.errors.full_messages
     erb :"/restaurants/edit"
