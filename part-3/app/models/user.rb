@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   include BCrypt
   has_many :reviews, foreign_key: :reviewer_id
-  has_many :created_restaurants, through: :reviews, source: :restaurant
+  has_many :created_restaurants, foreign_key: :creator_id, class_name: "Restaurant"
 
   validates :first_name, :last_name, :username, :email, presence: true
   validates :username, :email, uniqueness: true
