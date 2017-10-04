@@ -9,9 +9,9 @@ post "/posts" do
     if @post.save
       erb :"/posts/_post", layout: false, locals: { post: @post }
     else
-      @errors = @post.errors
+      @errors = @post.errors.full_messages
       status 422
-      erb :"/posts/new"
+      erb :"/_errors", layout: false
     end
   else
     if @post.save

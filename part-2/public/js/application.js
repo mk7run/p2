@@ -7,12 +7,15 @@ $(document).ready(function(){
     var url = $form.attr("action");
     var method = $form.attr("method");
     var data = $form.serialize();
+
     $.ajax({
       url: url,
       method: method,
       data: data
     }).done(function(response){
-      $("#posts").prepend(response)
+      $("#posts").prepend(response);
+    }).fail(function(response){
+      $form.before(response.responseText);
     });
   });
 
@@ -23,19 +26,12 @@ $(document).ready(function(){
 
     var url = $form.attr("action");
     var $likes = $article.children("p.post_details").children("span");
-    console.log($likes)
+
     $.ajax({
       url: url,
       method: "put"
     }).done(function(response){
       $likes.replaceWith(response);
     });
-
   });
-
-
-
-
-
-
 });
