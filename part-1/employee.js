@@ -10,7 +10,6 @@ function Employee(args={}){
 
 Employee.prototype.totalSales = function(){
   var employee = this;
-
   for (var i = 0; i < employee.sales.length; i++){
     return employee.sales.reduce(function(sum, sale){ return sum + sale});
   };
@@ -18,4 +17,4 @@ Employee.prototype.totalSales = function(){
 
 Employee.prototype.averageSales = function(){
   return (this.totalSales() / this.sales.length)
-}
+};
